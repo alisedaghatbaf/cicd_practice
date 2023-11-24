@@ -6,16 +6,15 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
   first-job:
     runs-on: ubuntu-latest
     name: first job
@@ -24,7 +23,7 @@ jobs:
         uses: actions/checkout@v3
       - name: step two
         run: env | sort
-  
+
   second-job:
     runs-on: windows-latest
     name: second job
@@ -32,8 +31,4 @@ jobs:
       - name: first step
         uses: actions/checkout@v3
       - name: second step
-        run "Get-FirstItem Env: | Sort-Object Name"
-        
-
-
-  
+        run: "Get-FirstItem Env: | Sort-Object Name"
